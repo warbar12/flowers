@@ -4,4 +4,3 @@ export const ADMIN_USER_ROLES = {
     superAdmin: 'superAdmin',
 };
 
-export const ADMIN_USER_SUPER_ADMIN_ROLE = 'superAdmin';
