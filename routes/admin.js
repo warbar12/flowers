@@ -53,7 +53,12 @@ adminRouter.post("/registration", dataValidator, async (req, res) => {
     });
 
     const savedUser = await newUser.save();
+    console.log(process.env.TOKEN_SECRET);
+    console.log(savedUser._id);
+
     const token = jwt.sign({ id: savedUser._id }, process.env.TOKEN_SECRET);
+ 
+    
     const { passwordHash, ...userData } = savedUser._doc;
 
     res.json({ ...userData, token });
