@@ -22,5 +22,10 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
+  },
+  "imports": {
+    "#modules/*": "./modules/*",
+    "#constants/*": "./constants/*",
+    "#validator/*": "./validator/*"
   }
 }

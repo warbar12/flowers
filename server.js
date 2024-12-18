@@ -16,7 +16,6 @@ mongoose
 
 app.use(express.json());
 
-// Подключение маршрута для администраторов
 app.use("/admin", adminRouter);
 
 app.listen(PORT, (error) => {
