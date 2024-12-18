@@ -18,6 +18,10 @@ app.use(express.json());
 
 app.use("/admin", adminRouter);
 
+app.get("/", (req, res) =>{
+  res.send("welcome from flowers api")
+})
+
 app.listen(PORT, (error) => {
   if (error) {
     console.error("Server Error:", error);
