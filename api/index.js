@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import adminRouter from "./routes/admin.js";
+import adminRouter from "#routes/admin.js";
 
 dotenv.config();
 
