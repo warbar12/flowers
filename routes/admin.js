@@ -58,6 +58,8 @@ adminRouter.post("/registration", dataValidator, async (req, res) => {
 
     res.json({ ...userData, token });
   } catch (error) {
+    console.log(error);
+    
     res.status(500).json({ message: "Registration failed. Try again later." });
   };
 });
