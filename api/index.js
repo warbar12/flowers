@@ -16,7 +16,6 @@ mongoose
 
 app.use(express.json());
 
-app.use("/admin", adminRouter);
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -30,6 +29,8 @@ app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Credentials", true);
   next();
 });
+
+app.use("/admin", adminRouter);
 
 app.get("/", (req, res) => {
   res.send("welcome from flowers api");
