@@ -9,7 +9,7 @@ import { ADMIN_USER_ROLES } from "#constants/adminUser.js";
 const adminRouter = express.Router();
 
 // Логин 
-adminRouter.get("/login", async (req, res) => {
+adminRouter.post("/login", async (req, res) => {
   try {
     const user = await AdminUser.findOne({ email: req.body.email });
     if (!user) {
