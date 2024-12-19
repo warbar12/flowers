@@ -2,7 +2,7 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import { validationResult } from "express-validator";
-import User from "#modules/user.js"
+import AdminUser from "#modules/adminUser.js"
 import { dataValidator } from "#validator/auth.js";
 import { ADMIN_USER_ROLES } from "#constants/adminUser.js";
 
@@ -11,7 +11,7 @@ const adminRouter = express.Router();
 // Логин 
 adminRouter.get("/login", async (req, res) => {
   try {
-    const user = await User.findOne({ email: req.body.email });
+    const user = await AdminUser.findOne({ email: req.body.email });
     if (!user) {
       return res.status(404).json({ message: "Incorrect login or password!" });
     };
@@ -45,7 +45,7 @@ adminRouter.post("/registration", dataValidator, async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(req.body.password, salt);
 
-    const newUser = new User({
+    const newUser = new AdminUser({
       username: req.body.username,
       email: req.body.email,
       passwordHash: hash,
